@@ -243,6 +243,140 @@
             margin: 6px 0;
         }
         
+        .tracks-tip {
+            text-align: center;
+            color: #1a3a6c;
+            font-weight: bold;
+            margin: 8px 0 18px;
+            opacity: 0.85;
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 1000;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-box {
+            position: relative;
+            background: #fff;
+            border-radius: 12px;
+            width: min(900px, 100%);
+            max-height: 85vh;
+            overflow: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            border: none;
+            background: transparent;
+            font-size: 28px;
+            color: #1a3a6c;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .modal-content {
+            padding: 24px;
+        }
+        
+        .modal-header {
+            background: linear-gradient(90deg, #1a3a6c 0%, #2c5aa0 100%);
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+        }
+        
+        .modal-header .sub {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 16px 0 8px;
+        }
+        
+        .course-card {
+            background: #f8fbff;
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 5px solid #ffcc00;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+        
+        .course-title {
+            color: #1a3a6c;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        
+        .course-meta {
+            margin-bottom: 10px;
+        }
+        
+        .chip {
+            display: inline-block;
+            background: linear-gradient(90deg, #ffcc00 0%, #ff9900 100%);
+            color: #1a3a6c;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 8px;
+        }
+        
+        .course-list {
+            margin-left: 18px;
+        }
+        
+        .info-banner {
+            text-align: center;
+            margin: 12px 0 4px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #fff8e6;
+            border: 1px solid #ffcc00;
+            color: #1a3a6c;
+            padding: 6px 10px;
+            border-radius: 14px;
+            margin: 4px 6px;
+            font-size: 0.9rem;
+        }
+        
+        .cta-inline {
+            text-align: center;
+            margin-top: 12px;
+        }
+        
+        .address.small {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.95rem;
+            background: none;
+        }
+        
         .cta-section {
             text-align: center;
             padding: 50px 20px;
@@ -421,6 +555,7 @@
         
         <section class="content-section">
             <h2 class="section-title">课程模块</h2>
+            <p class="tracks-tip">点击卡片查看详情</p>
             <div class="tracks">
                 <div class="track-card" data-target="primary">
                     <h3>小学</h3>
@@ -437,33 +572,142 @@
             </div>
             <div class="track-panels">
                 <div class="track-panel" id="panel-primary">
-                    <div class="panel-title">小学模块</div>
-                    <ul>
-                        <li>班型与课时：二年级英语精品班16课时；3-4年级音标语法班30课时；5-6年级音标语法班30课时</li>
-                        <li>学习重点：字母读写、启蒙核心词汇、基础交际用语、语音兴趣培养</li>
-                        <li>进阶强化：48音标巩固，核心语法预习（时态、名词所有格等），读写衔接</li>
-                        <li>衔接提升：比较级/最高级、宾语从句入门、小升初衔接，提前适应初中节奏</li>
-                        <li>报名福利：前30名赠无人机；两人团报减50元、三人减100元</li>
-                        <li>咨询与地址：15963036497（微信同号）；科技路杏花村小学西188米</li>
-                    </ul>
+                    <div class="modal-header">
+                        <h3>小学模块</h3>
+                        <div class="sub">启蒙/衔接双轨 · 音标语法打底 · 小升初衔接</div>
+                    </div>
+                    <div class="modal-content">
+                        <div class="card-grid">
+                            <div class="course-card">
+                                <div class="course-title">二年级英语精品班</div>
+                                <div class="course-meta">
+                                    <span class="chip">16课时</span>
+                                    <span class="chip">399元</span>
+                                </div>
+                                <ul class="course-list">
+                                    <li>字母认知与书写：儿歌/chant/字母操，读写规范</li>
+                                    <li>启蒙核心词汇：动物、文具、家庭成员、数字1-20、颜色</li>
+                                    <li>基础交际用语：问候、告别、感谢、介绍、简单请求</li>
+                                    <li>语音兴趣培养：英语儿歌、动画片段、互动游戏，建立语感</li>
+                                </ul>
+                            </div>
+                            <div class="course-card">
+                                <div class="course-title">3-4年级音标语法班</div>
+                                <div class="course-meta">
+                                    <span class="chip">30课时</span>
+                                    <span class="chip">599元</span>
+                                </div>
+                                <ul class="course-list">
+                                    <li>48音标巩固：高频词拼读训练，见词能读</li>
+                                    <li>语法预习：现在进行时、一般将来时、名词所有格</li>
+                                    <li>读写衔接：短文预习与句型仿写，减轻开学压力</li>
+                                </ul>
+                            </div>
+                            <div class="course-card">
+                                <div class="course-title">5-6年级音标语法班</div>
+                                <div class="course-meta">
+                                    <span class="chip">30课时</span>
+                                    <span class="chip">699元</span>
+                                </div>
+                                <ul class="course-list">
+                                    <li>音标进阶：长难单词与易混音标专项</li>
+                                    <li>语法提升：比较级/最高级、宾语从句入门、时态综合</li>
+                                    <li>小升初衔接：初中入门知识点预习，体系梳理</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="info-banner">
+                            <span class="badge">前30名赠无人机</span>
+                            <span class="badge">两人团报立减50元</span>
+                            <span class="badge">三人同报立减100元</span>
+                        </div>
+                        <div class="cta-inline">
+                            <a href="tel:15963036497" class="btn">立即咨询报名</a>
+                            <div class="address small">地址：科技路杏花村小学西188米</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="track-panel" id="panel-middle">
-                    <div class="panel-title">初中模块</div>
-                    <ul>
-                        <li>七年级：文言文与古诗文积累；整式运算、平行线、方程组；词汇800+与时态体系；规范化答题训练</li>
-                        <li>八年级：文言整篇理解、议论文阅读、说明文写作；反比例函数、平行四边形、勾股定理；定语/状语从句、完形与阅读；压强、浮力、简单机械</li>
-                        <li>九年级：总复习+重点预习双轨推进，数学二次函数、全等三角形、圆与相似；英语语法体系与核心3500+词汇；物理欧姆定律、电功率、电与磁；化学方程式、酸碱盐、实验与计算</li>
-                        <li>目标导向：夯实基础、攻克难点、系统构建知识网络，对接中考</li>
-                    </ul>
+                    <div class="modal-header">
+                        <h3>初中模块</h3>
+                        <div class="sub">年级分层 · 总复习+预习双轨 · 靶向提分</div>
+                    </div>
+                    <div class="modal-content">
+                        <div class="card-grid">
+                            <div class="course-card">
+                                <div class="course-title">七年级</div>
+                                <ul class="course-list">
+                                    <li>语文：文言文（实词/虚词/句式）与古诗文积累；作文素材沉淀</li>
+                                    <li>数学：整式的乘除、相交线与平行线、二元一次方程组</li>
+                                    <li>英语：核心词汇800+；一般将来时、现在完成时等语法体系</li>
+                                    <li>政治：核心概念与生活案例分析，规范化答题训练</li>
+                                </ul>
+                            </div>
+                            <div class="course-card">
+                                <div class="course-title">八年级</div>
+                                <ul class="course-list">
+                                    <li>语文：文言整篇理解与翻译；议论文阅读技巧；说明文写作</li>
+                                    <li>数学：反比例函数、平行四边形、勾股定理应用</li>
+                                    <li>英语：定/状从句等复合句；完形填空与阅读（推理判断）</li>
+                                    <li>物理：压强、浮力、简单机械；概念理解+公式推导+基础实验</li>
+                                </ul>
+                            </div>
+                            <div class="course-card">
+                                <div class="course-title">九年级（总复习+预习）</div>
+                                <ul class="course-list">
+                                    <li>数学：总复习（30课时）核心模块；预习圆与相似三角形进阶</li>
+                                    <li>英语：总复习（30课时）整合语法体系与核心3500+词汇；作文素材与语法补全</li>
+                                    <li>物理：总复习（30课时）力学/电学；预习电与磁、热学综合</li>
+                                    <li>化学：总复习（30课时）方程式与酸碱盐、实验与计算；预习剩余模块</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cta-inline">
+                            <a href="tel:15963036497" class="btn">了解初中课程</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="track-panel" id="panel-high">
-                    <div class="panel-title">高中模块</div>
-                    <ul>
-                        <li>高一夯实班：衔接初中断层，夯实必修核心考点，筑牢基础</li>
-                        <li>高二培优班：突破函数综合/语法体系等重难点，预习核心内容，领跑梯队</li>
-                        <li>高三冲刺班：一轮总复习查漏补缺，高频考点专项突破，精准对接命题方向</li>
-                        <li>附加支持：校长一对一心理咨询，保密专业，涵盖学业压力、升学焦虑与青春期困惑</li>
-                    </ul>
+                    <div class="modal-header">
+                        <h3>高中模块</h3>
+                        <div class="sub">夯实/培优/冲刺三阶 · 对接高考命题方向</div>
+                    </div>
+                    <div class="modal-content">
+                        <div class="card-grid">
+                            <div class="course-card">
+                                <div class="course-title">高一夯实班</div>
+                                <ul class="course-list">
+                                    <li>衔接初中断层，夯实必修核心考点，打牢学科基础</li>
+                                    <li>方法训练：规范解题、错题整理、课堂笔记与复盘</li>
+                                </ul>
+                            </div>
+                            <div class="course-card">
+                                <div class="course-title">高二培优班</div>
+                                <ul class="course-list">
+                                    <li>重难点突破：函数综合、语法体系、综合题型</li>
+                                    <li>预习下学期核心内容，领跑年级梯队</li>
+                                </ul>
+                            </div>
+                            <div class="course-card">
+                                <div class="course-title">高三冲刺班</div>
+                                <ul class="course-list">
+                                    <li>一轮总复习查漏补缺，高频考点专项突破</li>
+                                    <li>精准对接高考命题方向，提升得分率</li>
+                                </ul>
+                            </div>
+                            <div class="course-card">
+                                <div class="course-title">心理护航（免费）</div>
+                                <ul class="course-list">
+                                    <li>校长亲授：深耕教育管理18年，持有高级心理咨询师证书</li>
+                                    <li>服务：学业压力疏导、升学焦虑调节、人际困惑与自我认知</li>
+                                    <li>保障：严格保密，营造安全、包容的沟通环境</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cta-inline">
+                            <a href="tel:15963036497" class="btn">了解高中课程</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -560,19 +804,43 @@
             <p>这个暑假<br>让我们在睿思源，遇见更好的自己</p>
         </div>
     </footer>
+    <div class="modal-overlay" id="detailModal" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-modal="true">
+            <button class="modal-close" aria-label="关闭">×</button>
+            <div class="modal-content"></div>
+        </div>
+    </div>
     <script>
         const cards = document.querySelectorAll('.track-card');
-        const panels = document.querySelectorAll('.track-panel');
-        function showPanel(id) {
-            panels.forEach(p => p.classList.toggle('active', p.id === id));
+        const modal = document.getElementById('detailModal');
+        const modalContent = modal.querySelector('.modal-content');
+        const closeBtn = modal.querySelector('.modal-close');
+        function openModal(html) {
+            modalContent.innerHTML = html;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            modal.classList.remove('active');
+            modalContent.innerHTML = '';
+            document.body.style.overflow = '';
         }
         cards.forEach(c => {
             c.addEventListener('click', () => {
                 const target = c.getAttribute('data-target');
-                showPanel('panel-' + target);
+                const panel = document.getElementById('panel-' + target);
+                if (panel) openModal(panel.innerHTML);
             });
         });
-        showPanel('panel-primary');
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
