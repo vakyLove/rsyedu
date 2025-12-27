@@ -188,6 +188,61 @@
             flex-shrink: 0;
         }
         
+        .tracks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .track-card {
+            background: linear-gradient(135deg, #e6f0ff 0%, #d4e4fa 100%);
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid #ffcc00;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        
+        .track-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .track-card h3 {
+            color: #1a3a6c;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+        
+        .track-panels {
+            margin-top: 10px;
+        }
+        
+        .track-panel {
+            display: none;
+        }
+        
+        .track-panel.active {
+            display: block;
+        }
+        
+        .panel-title {
+            color: #1a3a6c;
+            font-size: 1.5rem;
+            margin: 10px 0 15px;
+        }
+        
+        .track-panel ul {
+            margin-left: 18px;
+        }
+        
+        .track-panel li {
+            margin: 6px 0;
+        }
+        
         .cta-section {
             text-align: center;
             padding: 50px 20px;
@@ -346,6 +401,11 @@
             
             <div class="target-groups">
                 <div class="group-card">
+                    <h3>小学</h3>
+                    <p>二年级、三至六年级</p>
+                    <p style="margin-top: 15px; font-weight: bold; color: #1a3a6c;">启蒙入门+音标语法<br>小升初衔接</p>
+                </div>
+                <div class="group-card">
                     <h3>初中生</h3>
                     <p>初一、初二、初三</p>
                     <p style="margin-top: 15px; font-weight: bold; color: #1a3a6c;">夯实基础，衔接新学期<br>备战中考</p>
@@ -355,6 +415,55 @@
                     <h3>高中生</h3>
                     <p>高一、高二、高三</p>
                     <p style="margin-top: 15px; font-weight: bold; color: #1a3a6c;">巩固提升，迎战新学年<br>冲刺高考</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">课程模块</h2>
+            <div class="tracks">
+                <div class="track-card" data-target="primary">
+                    <h3>小学</h3>
+                    <p>启蒙/衔接双轨，语音语法全面打底</p>
+                </div>
+                <div class="track-card" data-target="middle">
+                    <h3>初中</h3>
+                    <p>分年级总复习+预习双轨，靶向提分</p>
+                </div>
+                <div class="track-card" data-target="high">
+                    <h3>高中</h3>
+                    <p>夯实/培优/冲刺三阶，精准突破重难点</p>
+                </div>
+            </div>
+            <div class="track-panels">
+                <div class="track-panel" id="panel-primary">
+                    <div class="panel-title">小学模块</div>
+                    <ul>
+                        <li>班型与课时：二年级英语精品班16课时；3-4年级音标语法班30课时；5-6年级音标语法班30课时</li>
+                        <li>学习重点：字母读写、启蒙核心词汇、基础交际用语、语音兴趣培养</li>
+                        <li>进阶强化：48音标巩固，核心语法预习（时态、名词所有格等），读写衔接</li>
+                        <li>衔接提升：比较级/最高级、宾语从句入门、小升初衔接，提前适应初中节奏</li>
+                        <li>报名福利：前30名赠无人机；两人团报减50元、三人减100元</li>
+                        <li>咨询与地址：15963036497（微信同号）；科技路杏花村小学西188米</li>
+                    </ul>
+                </div>
+                <div class="track-panel" id="panel-middle">
+                    <div class="panel-title">初中模块</div>
+                    <ul>
+                        <li>七年级：文言文与古诗文积累；整式运算、平行线、方程组；词汇800+与时态体系；规范化答题训练</li>
+                        <li>八年级：文言整篇理解、议论文阅读、说明文写作；反比例函数、平行四边形、勾股定理；定语/状语从句、完形与阅读；压强、浮力、简单机械</li>
+                        <li>九年级：总复习+重点预习双轨推进，数学二次函数、全等三角形、圆与相似；英语语法体系与核心3500+词汇；物理欧姆定律、电功率、电与磁；化学方程式、酸碱盐、实验与计算</li>
+                        <li>目标导向：夯实基础、攻克难点、系统构建知识网络，对接中考</li>
+                    </ul>
+                </div>
+                <div class="track-panel" id="panel-high">
+                    <div class="panel-title">高中模块</div>
+                    <ul>
+                        <li>高一夯实班：衔接初中断层，夯实必修核心考点，筑牢基础</li>
+                        <li>高二培优班：突破函数综合/语法体系等重难点，预习核心内容，领跑梯队</li>
+                        <li>高三冲刺班：一轮总复习查漏补缺，高频考点专项突破，精准对接命题方向</li>
+                        <li>附加支持：校长一对一心理咨询，保密专业，涵盖学业压力、升学焦虑与青春期困惑</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -451,5 +560,19 @@
             <p>这个暑假<br>让我们在睿思源，遇见更好的自己</p>
         </div>
     </footer>
+    <script>
+        const cards = document.querySelectorAll('.track-card');
+        const panels = document.querySelectorAll('.track-panel');
+        function showPanel(id) {
+            panels.forEach(p => p.classList.toggle('active', p.id === id));
+        }
+        cards.forEach(c => {
+            c.addEventListener('click', () => {
+                const target = c.getAttribute('data-target');
+                showPanel('panel-' + target);
+            });
+        });
+        showPanel('panel-primary');
+    </script>
 </body>
 </html>
